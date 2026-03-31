@@ -2,193 +2,91 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>توتيلي ستور</title>
-
+<title>عمكم الهكر عبدالإله</title>
 <style>
 body {
-    margin: 0;
     font-family: Arial;
+    background-color: #f5f5dc;
     direction: rtl;
-    background: #111;
-    color: white;
-}
-
-/* زر القائمة */
-.menu-btn {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* القائمة الجانبية */
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100%;
-    background: #222;
-    padding-top: 50px;
-    transition: 0.3s;
-}
-
-.sidebar a {
-    display: block;
-    padding: 15px;
-    color: white;
-    text-decoration: none;
-}
-
-.sidebar a:hover {
-    background: #00b894;
+    text-align: center;
 }
 
 h1 {
-    text-align: center;
-    padding: 20px;
+    background-color: #ddd;
+    padding: 15px;
+    border-radius: 10px;
 }
 
-.products {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.container {
+    width: 80%;
+    margin: auto;
 }
 
-.product {
-    background: #1e1e1e;
+.card {
+    background: white;
+    padding: 15px;
     margin: 15px;
-    padding: 15px;
     border-radius: 10px;
-    width: 220px;
-    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.product img {
-    width: 100%;
+img {
+    width: 150px;
     border-radius: 10px;
 }
 
-button {
+a {
+    display: inline-block;
     margin-top: 10px;
-    padding: 10px;
-    border: none;
-    width: 100%;
-    background: #00b894;
-    color: white;
+    padding: 8px 12px;
+    background: #fffc00;
+    color: black;
+    text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-/* البوب اب */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-box {
-    background: #222;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.big-btn {
-    padding: 15px;
-    margin: 10px;
-    width: 200px;
-    font-size: 18px;
 }
 </style>
-
 </head>
+
 <body>
 
-<!-- زر الثلاث خطوط -->
-<div class="menu-btn" onclick="openMenu()">☰</div>
+<h1>عمكم الهكر عبدالإله</h1>
 
-<!-- القائمة -->
-<div class="sidebar" id="menu">
-    <a href="#" onclick="showHome()">الرئيسية</a>
-    <a href="#" onclick="showProducts()">الطلبات</a>
+<div class="container">
+
+<div class="card">
+    <h2>معاذ</h2>
+    <img src="moath.jpg">
+    <p>
+        معاذ يحب اللعب طول اليوم وما يمل 😂  
+        يقول إنه محترف بس دايم يخسر، وعنده حركات غريبة فجأة يختفي ويرجع.  
+        ويحب بنت بس رافض يعترف لحد الآن 🤫
+    </p>
+    <a href="https://snapchat.com/add/moath" target="_blank">سناب معاذ</a>
 </div>
 
-<h1 id="title">أهلا وسهلا بكم في متجر توتيلي ستور</h1>
-
-<div class="products" id="products">
-
-<div class="product">
-    <img src="https://via.placeholder.com/200">
-    <h3>منتج 1</h3>
-    <p>50 ريال</p>
-    <button onclick="openPopup('منتج 1')">طلب</button>
+<div class="card">
+    <h2>زياد</h2>
+    <img src="ziad.jpg">
+    <p>
+        زياد عاشق ألعاب وأنمي بشكل مو طبيعي 🎮  
+        ومدمن على أرطغرل ويعيد الحلقات كأنه أول مرة.  
+        وصارت له سالفة مع ورع عبد يوم فاز عليه وخلاه يسلك له من بعدها 😂
+    </p>
+    <a href="https://snapchat.com/add/ziad" target="_blank">سناب زياد</a>
 </div>
 
-<div class="product">
-    <img src="https://via.placeholder.com/200">
-    <h3>منتج 2</h3>
-    <p>80 ريال</p>
-    <button onclick="openPopup('منتج 2')">طلب</button>
+<div class="card">
+    <h2>هني</h2>
+    <img src="hani.jpg">
+    <p>
+        هني ما يحب الألعاب أبد 😴  
+        بس يتابع في واو طول الوقت وغثنا فيه.  
+        وعنده اهتمام غريب بالأشياء الهندية ويقلدهم أحيانًا 😂
+    </p>
+    <a href="https://snapchat.com/add/hani" target="_blank">سناب هني</a>
 </div>
 
 </div>
-
-<!-- البوب اب -->
-<div class="popup" id="popup">
-    <div class="popup-box">
-        <h3>اختر طريقة التواصل</h3>
-
-        <button class="big-btn" onclick="contact('whatsapp')">واتساب</button>
-        <button class="big-btn" onclick="contact('instagram')">انستقرام</button>
-        <br>
-        <button onclick="closePopup()">إغلاق</button>
-    </div>
-</div>
-
-<script>
-function openMenu(){
-    document.getElementById("menu").style.right = "0";
-}
-
-function showHome(){
-    document.getElementById("title").style.display = "block";
-    document.getElementById("products").style.display = "none";
-    document.getElementById("menu").style.right = "-250px";
-}
-
-function showProducts(){
-    document.getElementById("title").style.display = "none";
-    document.getElementById("products").style.display = "flex";
-    document.getElementById("menu").style.right = "-250px";
-}
-
-let selectedProduct = "";
-
-function openPopup(product){
-    selectedProduct = product;
-    document.getElementById("popup").style.display = "flex";
-}
-
-function closePopup(){
-    document.getElementById("popup").style.display = "none";
-}
-
-function contact(type){
-    if(type === "whatsapp"){
-        window.open("https://wa.me/966534927605?text=أبغى أطلب " + selectedProduct);
-    } else {
-        window.open("https://instagram.com/2telel");
-    }
-}
-</script>
 
 </body>
 </html>
