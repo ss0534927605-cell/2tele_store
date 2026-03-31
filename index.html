@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توتيلي ستور</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #5c5c5c;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .product {
+            background: #fff;
+            border: 1px solid #dddddd;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+        .cart {
+            background: #fff;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #dddddd;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>توتيلي ستور</h1>
+    <nav>
+        <a href="#" onclick="showSection('home')">الرئيسية</a>
+        <a href="#" onclick="showSection('login')">تسجيل الدخول</a>
+        <a href="#" onclick="showSection('register')">تسجيل حساب</a>
+        <a href="#" onclick="showSection('products')">المنتجات</a>
+        <a href="#" onclick="showSection('cart')">سلة المشتريات</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div id="home" class="section">
+        <h2>مرحبا بكم في توتيلي ستور</h2>
+        <p>تسوق بأفضل الأسعار!</p>
+    </div>
+
+    <div id="login" class="section hidden">
+        <h2>تسجيل الدخول</h2>
+        <form onsubmit="return login();">
+            <input type="text" placeholder="البريد الإلكتروني" required><br>
+            <input type="password" placeholder="كلمة المرور" required><br>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
+
+    <div id="register" class="section hidden">
+        <h2>تسجيل حساب</h2>
+        <form onsubmit="return register();">
+            <input type="text" placeholder="اسم المستخدم" required><br>
+            <input type="text" placeholder="البريد الإلكتروني" required><br>
+            <input type="password" placeholder="كلمة المرور" required><br>
+            <button type="submit">تسجيل</button>
+        </form>
+    </div>
+
+    <div id="products" class="section hidden">
+        <h2>المنتجات</h2>
+        <div class="product">
+            <h3>منتج 1</h3>
+            <img src="https://via.placeholder.com/150" alt="منتج 1"><br>
+            <p>سعر: 100 ريال</p>
+            <button onclick="addToCart('منتج 1', 100)">أضف إلى السلة</button>
+        </div>
+        <div class="product">
+            <h3>منتج 2</h3>
+            <img src="https://via.placeholder.com/150" alt="منتج 2"><br>
+            <p>سعر: 150 ريال</p>
+            <button onclick="addToCart('منتج 2', 150)">أضف إلى السلة</button>
+        </div>
+    </div>
+
+    <div id="cart" class="section hidden">
+        <h2>سلة المشتريات</h2>
+        <div class="cart" id="cartItems"></div>
+        <p id="totalPrice">الإجمالي: 0 ريال</p>
+    </div>
+</div>
+
+<script>
+    let cart = [];
+
+    function showSection(section) {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(s => s.classList.add('hidden'));
+        document.getElementById(section).classList.remove('hidden');
+    }
+
+    function addToCart(product, price) {
+        cart.push({ product, price });
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItems = document.getElementById('cartItems');
+        cartItems.innerHTML = '';
+        let total = 0;
+        cart.forEach(item => {
+            cartItems.innerHTML += `<p>${item.product} - ${item.price} ريال</p>`;
+            total += item.price;
+        });
+        document.getElementById('totalPrice').innerText = `الإجمالي: ${total} ريال`;
+    }
+
+    function login() {
+        alert('تم تسجيل الدخول بنجاح!');
+        return false; // Prevent actual form submission
+    }
+
+    function register() {
+        alert('تم إنشاء الحساب بنجاح!');
+        return false; // Prevent actual form submission
+    }
+    
+    // Show home section by default
+    showSection('home');
+</script>
+
+</body>
+</html>
